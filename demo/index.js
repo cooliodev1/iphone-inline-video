@@ -12,10 +12,23 @@ if (location.search === '?enabled=false') {
 
 function enableButtons(video) {
 	var playBtn = video.parentNode.querySelector('.play');
+
+	var pauseBtn = video.parentNode.querySelector('.pause');
+
 	var fullscreenButton = video.parentNode.querySelector('.fullscreen');
 
 	if (playBtn) {
 		playBtn.addEventListener('click', function () {
+			if (video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}
+		});
+	}
+
+	if (pauseBtn) {
+		pauseBtn.addEventListener('click', function () {
 			if (video.paused) {
 				video.play();
 			} else {
